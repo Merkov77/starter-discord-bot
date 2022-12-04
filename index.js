@@ -26,19 +26,19 @@ const discord_api = axios.create({
   }
 });
 
-
-
-
-app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
-  const interaction = req.body;
-	
-	interaction.user.setPresence( {
+app.user.setPresence( {
        activity: {
            name: "Hi!",
            type: "PLAYING"  //playing, watching
        },
        status: "online"
     });
+
+
+app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
+  const interaction = req.body;
+	
+	
   
 
   if (interaction.type === InteractionType.APPLICATION_COMMAND) {
