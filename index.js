@@ -26,13 +26,6 @@ const discord_api = axios.create({
   }
 });
 
-app.user.setPresence( {
-       activity: {
-           name: "Hi!",
-           type: "PLAYING"  //playing, watching
-       },
-       status: "online"
-    });
 
 
 app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
